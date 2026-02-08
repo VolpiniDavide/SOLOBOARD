@@ -17,12 +17,12 @@ public static class WordGridGenerator
         int level1,
         int level2,
         int level3,
-        List<Word> words
+        List<WordData> words
     )
     {
         words = words.OrderBy(_ => random.Next()).ToList();
 
-        List<Word> wordsToPrint = GetWordsList(
+        List<WordData> wordsToPrint = GetWordsList(
             Math.Max(sizeX, sizeY),
             subjects,
             objects,
@@ -37,7 +37,7 @@ public static class WordGridGenerator
             .OrderByDescending(w => w.value.Length)
             .ToList();
 
-       foreach(Word w in wordsToPrint)
+       foreach(WordData w in wordsToPrint)
         {
             Debug.Log("parola stampata: " + w.value);
         }
@@ -45,7 +45,7 @@ public static class WordGridGenerator
         return PlaceWords(wordsToPrint, sizeX, sizeY);
     }
 
-    private static List<Word> GetWordsList(
+    private static List<WordData> GetWordsList(
         int maxWordLength,
         int subjects,
         int objects,
@@ -53,10 +53,10 @@ public static class WordGridGenerator
         int level1,
         int level2,
         int level3,
-        List<Word> words
+        List<WordData> words
     )
     {
-        List<Word> wordsToPrint = new();
+        List<WordData> wordsToPrint = new();
 
         if (objects > 0)
         {
@@ -69,7 +69,7 @@ public static class WordGridGenerator
         {
             wordsToPrint.AddRange(
                 words
-                    .Where(w => w.wordType == WordTypeEnum.SUBJECT &&
+                    .Where(w => w.wordType == WordType.Subject &&
                                 w.value.Length <= maxWordLength)
                     .Take(subjects)
             );
@@ -79,7 +79,7 @@ public static class WordGridGenerator
         {
             wordsToPrint.AddRange(
                 words
-                    .Where(w => w.wordType == WordTypeEnum.PREDICATE &&
+                    .Where(w => w.wordType == WordType.Predicate &&
                                 w.value.Length <= maxWordLength)
                     .Take(predicate)
             );
@@ -88,19 +88,19 @@ public static class WordGridGenerator
         return wordsToPrint;
     }
 
-    private static List<Word> GetObjectWords(
+    private static List<WordData> GetObjectWords(
         int maxWordLength,
         int objects,
         int level1,
         int level2,
         int level3,
-        List<Word> words
+       List<WordData> words
     )
     {
         if ((level1 + level2 + level3) > objects)
             throw new Exception("Too many leveled object words requested.");
 
-        List<Word> objectWords = new();
+        List<WordData> objectWords = new();
 
         void AddLevel(int level, int amount)
         {
@@ -108,7 +108,7 @@ public static class WordGridGenerator
 
             objectWords.AddRange(
                 words
-                    .Where(w => w.wordType == WordTypeEnum.OBJECT &&
+                    .Where(w => w.wordType == WordType.Object &&
                                 w.level == level &&
                                 w.value.Length <= maxWordLength)
                     .Take(amount)
@@ -125,7 +125,7 @@ public static class WordGridGenerator
         {
             objectWords.AddRange(
                 words
-                    .Where(w => w.wordType == WordTypeEnum.OBJECT &&
+                    .Where(w => w.wordType == WordType.Object &&
                                 w.level == 0)
                     .Take(remaining)
             );
@@ -134,7 +134,7 @@ public static class WordGridGenerator
         return objectWords;
     }
 
-    private static char[] PlaceWords(List<Word> wordsToPrint, int sizeX, int sizeY)
+    private static char[] PlaceWords(List<WordData> wordsToPrint, int sizeX, int sizeY)
     {
         char[,] grid = new char[sizeY, sizeX];
 
@@ -246,11 +246,19 @@ public static class WordGridGenerator
 
 // ------------------------------ CLASSES --------------------------------------
 
-public enum WordTypeEnum
+public enum WordType
 {
-    OBJECT,
-    SUBJECT,
-    PREDICATE
+    Subject,
+    Predicate,
+    Object
+}
+
+public enum StatType
+{
+    Subject,    // solo per uniformità
+    Strength,
+    Speed,
+    Resistance
 }
 
 [Serializable]
@@ -258,7 +266,7 @@ public class Word
 {
     public string id;
     public string value;
-    public WordTypeEnum wordType;
+    public WordType wordType;
     public int level;
 }
 

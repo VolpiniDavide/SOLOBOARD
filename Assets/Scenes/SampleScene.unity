@@ -1259,6 +1259,65 @@ RectTransform:
   m_AnchoredPosition: {x: -386, y: 557}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &868288611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868288612}
+  - component: {fileID: 868288613}
+  m_Layer: 0
+  m_Name: WordPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868288612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868288611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2403.183, y: 112.13265, z: -0.7170175}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868288613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868288611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b198d8171df03fe4c997e12f3fdedc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWords:
+  - {fileID: 11400000, guid: ae8d98a1adbae7f4c8e8b280b166e6db, type: 2}
+  - {fileID: 11400000, guid: a2fcd54c40f4c7144b93fca0d100617a, type: 2}
+  - {fileID: 11400000, guid: f4efe07969f24db4b93cd46a6eb35b56, type: 2}
+  - {fileID: 11400000, guid: 780c59a2d286e914caabc35ae7549985, type: 2}
+  - {fileID: 11400000, guid: 7a702c5b40bb8d04eb7ab5655df6e19f, type: 2}
+  - {fileID: 11400000, guid: 5470b104dc939064bbe2da6fd4e738ba, type: 2}
+  - {fileID: 11400000, guid: 8b875e6394a3dbb47a7328c77ea5c4d7, type: 2}
+  - {fileID: 11400000, guid: 9f6fc878f7fe8a74dbb49f6a3a747a68, type: 2}
+  - {fileID: 11400000, guid: dfe7b3acb6004a54fa61dd9a21b978d9, type: 2}
+  - {fileID: 11400000, guid: 3ecb56fe4c403b2488155a3fe6a5d820, type: 2}
+  - {fileID: 11400000, guid: df69990db502da247bd1a08873ecc6d1, type: 2}
+  - {fileID: 11400000, guid: 73f9fa2004ed73c4380aa2338bec2b29, type: 2}
+  - {fileID: 11400000, guid: 44ca59d00238669498c519d680339663, type: 2}
+  - {fileID: 11400000, guid: dac2d2fd4652dd34cbf440bdd65025a9, type: 2}
 --- !u!1 &1183745228
 GameObject:
   m_ObjectHideFlags: 0
@@ -3524,3 +3583,4 @@ SceneRoots:
   - {fileID: 1183745231}
   - {fileID: 716228266}
   - {fileID: 708776505}
+  - {fileID: 868288612}

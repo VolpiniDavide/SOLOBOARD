@@ -23,6 +23,14 @@ public class WordGridSpawner : MonoBehaviour
     [Header("Word Pool")]
     public List<Word> words;
 
+    [Header("Word Pool")]
+    public WordPool WordPool;
+
+    private void Awake()
+    {
+        WordPool = FindObjectOfType<WordPool>();
+    }
+
     private void Start()
     {
         //GenerateGrid();
@@ -32,6 +40,10 @@ public class WordGridSpawner : MonoBehaviour
     public void GenerateGrid()
     {
         ClearGrid();
+
+        var words = WordPool.GetAllWordData();
+
+
 
         char[] letters = WordGridGenerator.GetLettersList(
             sizeX,

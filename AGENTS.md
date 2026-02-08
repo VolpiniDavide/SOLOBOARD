@@ -2,7 +2,7 @@
 - Project name: SOLOBOARD
 - Unity version: Unity 2022.3.28f1
 - Active game object:
-  - Name: main_canvas
+  - Name: WordPool
   - Tag: Untagged
-  - Layer: UI
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

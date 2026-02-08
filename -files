@@ -1,0 +1,35 @@
+[35m.gitignore[m[36m:[m/[Aa]ssets/Streaming[1;31mAssets[m/aa*
+[35m.gitignore[m[36m:[m/[Aa]ssets/Addressable[1;31mAssets[mData/link.xml*
+[35m.gitignore[m[36m:[m# /[1;31mAssets[m/Addressable[1;31mAssets[mData/OSX/addressables_content_state.bin
+[35m.gitignore[m[36m:[m/[Aa]ssets/Addressable[1;31mAssets[mData/*/*.bin*
+[35mAssets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset[m[36m:[m  fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset[m[36m:[m  fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset[m[36m:[m  fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Oswald Bold SDF.asset[m[36m:[m  fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Roboto-Bold SDF.asset[m[36m:[m  fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Examples & Extras/Resources/Sprite Assets/Default Sprite Asset.asset[m[36m:[m  fallbackSprite[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Examples & Extras/Resources/Sprite Assets/DropCap Numbers.asset[m[36m:[m  fallbackSprite[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF - Fallback.asset[m[36m:[m  fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset[m[36m:[m  fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset[m[36m:[m  fallbackSprite[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Resources/TMP Settings.asset[m[36m:[m  m_fallbackFont[1;31mAssets[m: []
+[35mAssets/TextMesh Pro/Resources/TMP Settings.asset[m[36m:[m  m_defaultSpriteAssetPath: Sprite [1;31mAssets[m/
+[35mPackages/com.merry-yellow.code-assist/CHANGELOG.md[m[36m:[m* New feature: Package, asset has relocated under Packages directory (from [1;31mAssets[m directýry), along with Unity setup menu items
+[35mPackages/com.merry-yellow.code-assist/Editor/AboutWindow.cs[m[36m:[m            //var icon = AssetDatabase.LoadAssetAtPath<Texture>("[1;31mAssets[m/Sprites/Gear.png");
+[35mPackages/com.merry-yellow.code-assist/Editor/Cleanup.cs[m[36m:[m            // prior to version UCA.v.1.1.9, syncronizerModel and yamlDotNet dll files were located at ProjectPath/[1;31mAssets[m/Plugins/CodeAssist/Editor/ExternalReferences/Release/netstandard2.0
+[35mPackages/com.merry-yellow.code-assist/Editor/Cleanup.cs[m[36m:[m            // with version UCA.v.1.1.9 and newer versions, they are located at ProjectPath/[1;31mAssets[m/Plugins/CodeAssist/Editor/ExternalReferences
+[35mPackages/com.merry-yellow.code-assist/Editor/Cleanup.cs[m[36m:[m            // delete ProjectPath/[1;31mAssets[m/Plugins/CodeAssist/Editor/ExternalReferences/Release
+[35mPackages/com.merry-yellow.code-assist/Editor/Cleanup.cs[m[36m:[m            // with version 1.2, asset directory moved from [1;31mAssets[m/Plugins/CodeAssist to Packages/com.merry-yellow.code-assist
+[35mPackages/com.merry-yellow.code-assist/Editor/FeedbackWindow.cs[m[36m:[m            //var icon = AssetDatabase.LoadAssetAtPath<Texture>("[1;31mAssets[m/Sprites/Gear.png");
+[35mPackages/com.merry-yellow.code-assist/Editor/Logger/CommonTools.cs[m[36m:[m            // Application.dataPath returns the path including /[1;31mAssets[m, which we need to strip off
+[35mPackages/com.merry-yellow.code-assist/Editor/ScriptFinder.cs[m[36m:[m                // Object.FindAnyObjectOfType doesn't return [1;31mAssets[m (for example meshes, textures, or prefabs), or inactive objects. It also doesn't return objects that have HideFlags.DontSave set.
+[35mPackages/com.merry-yellow.code-assist/Editor/ScriptFinder.cs[m[36m:[m                // Object.FindObjectOfType will not return [1;31mAssets[m (meshes, textures, prefabs, ...) or inactive objects. It will not return an object that has HideFlags.DontSave set.
+[35mPackages/com.merry-yellow.code-assist/Editor/ScriptFinder.cs[m[36m:[m            foreach (var sceneGUID in AssetDatabase.Find[1;31mAssets[m("t:Scene", new string[] { "[1;31mAssets[m" }))
+[35mPackages/com.merry-yellow.code-assist/Editor/ScriptFinder.cs[m[36m:[m            var assets = AssetDatabase.Find[1;31mAssets[m("Deneme_OtherScene");
+[35mPackages/com.merry-yellow.code-assist/Editor/ScriptFinder.cs[m[36m:[m            Debug.Log("[1;31mAssets[m: " + assets.Length);
+[35mPackages/com.merry-yellow.code-assist/Editor/StatusWindow.cs[m[36m:[m            //var icon = AssetDatabase.LoadAssetAtPath<Texture>("[1;31mAssets[m/Sprites/Gear.png");
+[35mProjectSettings/EditorBuildSettings.asset[m[36m:[m    path: [1;31mAssets[m/Scenes/SampleScene.unity
+[35mProjectSettings/PackageManagerSettings.asset[m[36m:[m  m_Load[1;31mAssets[m: 0
+[35mProjectSettings/ProjectSettings.asset[m[36m:[m  preloaded[1;31mAssets[m: []
+[35mProjectSettings/ProjectSettings.asset[m[36m:[m  templateDefaultScene: [1;31mAssets[m/Scenes/SampleScene.unity
+[35mProjectSettings/ProjectSettings.asset[m[36m:[m  platformRequiresReadable[1;31mAssets[m: 0
