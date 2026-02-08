@@ -6,7 +6,14 @@ public class KeyboardHandler : MonoBehaviour
     [Header("Display")]
     public TextMeshProUGUI screenText;
 
+    public GameManager gameManager;
+
     private string currentText = "";
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     public void AddCharacter(string c)
     {
@@ -32,13 +39,23 @@ public class KeyboardHandler : MonoBehaviour
     {
         Debug.Log("Typed phrase: " + currentText);
 
-        // opzionale:
-        // currentText = "";
-        // UpdateScreen();
+
+        //TODO:
+        //check parole/frase
+        //currentText = ""; 
+        //UpdateScreen();
+
+        //if(tutti i controlli sono positivi )
+        gameManager.OnEnterClick();
     }
 
     private void UpdateScreen()
     {
         screenText.text = currentText;
+    }
+
+    public void cleanText()
+    {
+        currentText = "";
     }
 }

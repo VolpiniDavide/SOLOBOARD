@@ -27,6 +27,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color dangerColor = Color.red;
 
+    [Header("Display")]
+    public TextMeshProUGUI screenText;
+
+    [Header("Keyboard")]
+    public KeyboardHandler keyboardHandler;
+
     // STATE
     private GameState currentState = GameState.None;
     private int currentRound = 0;
@@ -156,6 +162,8 @@ public class GameManager : MonoBehaviour
         Debug.Log($"ROUND {currentRound} END");
 
         keyboardPanel.SetActive(false);
+        UpdateScreen("");
+        cleanTextFormKeyboardHandler();
 
         // qui più avanti:
         // spawn personaggi
@@ -179,6 +187,29 @@ public class GameManager : MonoBehaviour
             return;
 
         ChangeState(GameState.RoundStart);
+    }
+
+    public void OnEnterClick()
+    {
+        Debug.Log($"ROUND {currentRound} END because player clicked enter and all checks successfull");
+
+        keyboardPanel.SetActive(false);
+
+        // qui più avanti:
+        // spawn personaggi
+        // calcolo reward
+
+        ChangeState(GameState.RoundEnd);
+    }
+
+    private void UpdateScreen(string text)
+    {
+        screenText.text = text;
+    }
+
+    private void cleanTextFormKeyboardHandler()
+    {
+        keyboardHandler.cleanText();
     }
 
     // =========================

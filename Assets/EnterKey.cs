@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SpaceKey : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class EnterKey : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public string keyChar;
     public TextMeshProUGUI keyNotPressedText;
@@ -27,7 +27,7 @@ public class SpaceKey : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (keyNotPressedText != null)
             keyNotPressedText.color = pressedTextColor;
 
-        keyboard.AddSpace();
+       
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -39,5 +39,6 @@ public class SpaceKey : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         {
             // keyNotPressedText.color = normalTextColor;
         }
+        keyboard.Submit();
     }
 }
