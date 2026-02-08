@@ -1,52 +1,188 @@
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public enum GameState
     {
-        Boot,
-        Round,
-        Shop,
-        GameOver
+        None,
+        RoundStart,
+        Playing,
+        RoundEnd,
+        Shop
     }
 
-    public static GameManager Instance;
+    [Header("Round Settings")]
+    [SerializeField] private float roundDuration = 60f;
 
-    public GameState State;
+    [Header("References")]
+    [SerializeField] private WordGridSpawner gridSpawner;
+    [SerializeField] private TextMeshProUGUI timerText;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    [Header("UI Panels")]
+    [SerializeField] private GameObject keyboardPanel;
+    [SerializeField] private GameObject shopPanel;
+
+    [Header("Timer Colors")]
+    [SerializeField] private Color normalColor = Color.white;
+    [SerializeField] private Color dangerColor = Color.red;
+
+    // STATE
+    private GameState currentState = GameState.None;
+    private int currentRound = 0;
+    public int CurrentRound => currentRound;
+    public GameState CurrentState => currentState;
+
+
+    // TIMER
+    private float timer;
+    private int lastShownSecond;
 
     private void Start()
     {
-        StartRound();
+        ChangeState(GameState.RoundStart);
     }
 
-    public void StartRound()
+    private void Update()
     {
-        State = GameState.Round;
-
-        Debug.Log("Round Started");
-
-        // TODO:
-        // generate grid
-        // start timer
-        // spawn enemies
+        if (currentState == GameState.Playing)
+        {
+            UpdateTimer();
+        }
     }
 
-    public void EndRound()
+    // =========================
+    // STATE MACHINE
+    // =========================
+
+    private void ChangeState(GameState newState)
     {
-        State = GameState.Shop;
+        if (currentState == newState)
+            return;
 
-        Debug.Log("Round Ended");
+        ExitState(currentState);
+        currentState = newState;
+        EnterState(currentState);
     }
 
-    public void GameOver()
+    private void EnterState(GameState state)
     {
-        State = GameState.GameOver;
+        Debug.Log($"ENTER STATE: {state}");
 
-        Debug.Log("GAME OVER");
+        switch (state)
+        {
+            case GameState.RoundStart:
+                StartNewRound();
+                break;
+
+            case GameState.Playing:
+                StartTimer();
+                break;
+
+            case GameState.RoundEnd:
+                HandleRoundEnd();
+                break;
+
+            case GameState.Shop:
+                OpenShop();
+                break;
+        }
     }
+
+    private void ExitState(GameState state)
+    {
+        Debug.Log($"EXIT STATE: {state}");
+
+        switch (state)
+        {
+            case GameState.Playing:
+                // qui in futuro: bloccare input, fermare suoni, ecc
+                break;
+        }
+    }
+
+    // =========================
+    // ROUND LOGIC
+    // =========================
+
+    private void StartNewRound()
+    {
+        currentRound++;
+        Debug.Log($"ROUND {currentRound} START");
+
+        keyboardPanel.SetActive(true);
+        shopPanel.SetActive(false);
+
+        gridSpawner.GenerateGrid();
+
+        ChangeState(GameState.Playing);
+    }
+
+    private void StartTimer()
+    {
+        timer = roundDuration;
+        lastShownSecond = -1;
+        UpdateTimerUI();
+    }
+
+    private void UpdateTimer()
+    {
+        timer -= Time.deltaTime;
+
+        if (timer <= 0f)
+        {
+            timer = 0f;
+            ChangeState(GameState.RoundEnd);
+            return;
+        }
+
+        UpdateTimerUI();
+    }
+
+    private void UpdateTimerUI()
+    {
+        int seconds = Mathf.CeilToInt(timer);
+
+        if (seconds == lastShownSecond)
+            return;
+
+        lastShownSecond = seconds;
+        timerText.text = seconds.ToString();
+        timerText.color = seconds <= 10 ? dangerColor : normalColor;
+    }
+
+    private void HandleRoundEnd()
+    {
+        Debug.Log($"ROUND {currentRound} END");
+
+        keyboardPanel.SetActive(false);
+
+        // qui più avanti:
+        // spawn personaggi
+        // calcolo reward
+
+        ChangeState(GameState.Shop);
+    }
+
+    private void OpenShop()
+    {
+        shopPanel.SetActive(true);
+    }
+
+    // =========================
+    // UI CALLBACKS
+    // =========================
+
+    public void OnContinueButtonPressed()
+    {
+        if (currentState != GameState.Shop)
+            return;
+
+        ChangeState(GameState.RoundStart);
+    }
+
+    // =========================
+    // DEBUG / INFO
+    // =========================
+
 }

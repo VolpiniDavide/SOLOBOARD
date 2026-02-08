@@ -25,7 +25,7 @@ public class WordGridSpawner : MonoBehaviour
 
     private void Start()
     {
-        GenerateGrid();
+        //GenerateGrid();
     }
 
     [ContextMenu("Generate Grid")]
@@ -64,7 +64,7 @@ public class WordGridSpawner : MonoBehaviour
     {
         for (int i = gridParent.childCount - 1; i >= 0; i--)
         {
-            DestroyImmediate(gridParent.GetChild(i).gameObject);
+            Destroy(gridParent.GetChild(i).gameObject);
         }
     }
 }
