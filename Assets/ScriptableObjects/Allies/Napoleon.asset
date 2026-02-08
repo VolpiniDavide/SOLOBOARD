@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 633765d1ff302244f98630a4ca2cf059, type: 3}
+  m_Name: Napoleon
+  m_EditorClassIdentifier: 
+  wordId: napoleon
+  uiPrefab: {fileID: 9084207292374930004, guid: eca9fc32206f7da409f019e391b2cb4f, type: 3}
+  worldPrefab: {fileID: 223127334124219717, guid: 72504f0f984928043bc8a7364942a787, type: 3}

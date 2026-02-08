@@ -1,5 +1,6 @@
-using UnityEngine;
+using System;
 using TMPro;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +33,11 @@ public class GameManager : MonoBehaviour
 
     [Header("Keyboard")]
     public KeyboardHandler keyboardHandler;
+
+    [Header("Test Words")]
+    public WordData subject;
+    public WordData predicate;
+    public WordData obj;
 
     // STATE
     private GameState currentState = GameState.None;
@@ -193,13 +199,17 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"ROUND {currentRound} END because player clicked enter and all checks successfull");
 
-        keyboardPanel.SetActive(false);
+
 
         // qui più avanti:
         // spawn personaggi
         // calcolo reward
 
-        ChangeState(GameState.RoundEnd);
+        //keyboardPanel.SetActive(false);
+        //ChangeState(GameState.RoundEnd);
+        SentenceEvents.OnSentenceValidated?.Invoke(
+        new ValidatedSentence(subject, predicate, obj)
+);
     }
 
     private void UpdateScreen(string text)
