@@ -92,10 +92,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44
+  m_fontSize: 41
   m_fontSizeBase: 44
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 3.3138428, y: 4.418701, z: 3.0378418, w: -0.27618408}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -169,8 +169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 82, y: 82}
+  m_AnchoredPosition: {x: -12.3351, y: 12.335}
+  m_SizeDelta: {x: 57.3299, y: 57.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5520955063412625984
 CanvasRenderer:
@@ -244,7 +244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000019252, y: 7}
+  m_AnchoredPosition: {x: -0.000019252, y: 10}
   m_SizeDelta: {x: 61.3285, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1576233336135954100
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 4.418579, y: 5.7994385, z: 3.866333, w: 2.2092896}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -379,8 +379,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5.7809}
-  m_SizeDelta: {x: 82, y: 70.4382}
+  m_AnchoredPosition: {x: -12.335, y: 2.7588}
+  m_SizeDelta: {x: 57.33, y: 53.3589}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &420176142527587773
 CanvasRenderer:
@@ -519,7 +519,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.25079918, y: 0.004737854}
+  m_Offset: {x: -11.395206, y: 12.104486}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -530,5 +530,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 74.848206, y: 74.6252}
+  m_Size: {x: 51.55619, y: 50.4257}
   m_EdgeRadius: 0
