@@ -1,14 +1,21 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableAlly :
-    MonoBehaviour,
+public class DraggableAlly : MonoBehaviour,
     IBeginDragHandler,
     IDragHandler,
     IEndDragHandler
 {
-    private Canvas canvas;
     private RectTransform rect;
+    private Canvas canvas;
+    private Vector3 startPos;
+
+    private AllyData allyData;
+
+    public void Init(AllyData data)
+    {
+        allyData = data;
+    }
 
     private void Awake()
     {
@@ -16,24 +23,28 @@ public class DraggableAlly :
         canvas = GetComponentInParent<Canvas>();
     }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        startPos = rect.position;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
-        rect.anchoredPosition +=
-            eventData.delta / canvas.scaleFactor;
+        rect.position += (Vector3)eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        // QUI dopo faremo:
-
-        // se sopra battlefield:
-        //     converti in world
-        //     spawn vero ally
-        //     distruggi UI
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        //throw new System.NotImplementedException();
+        if (BattlefieldDropZone.Instance.TryGetDropPosition(
+            eventData.position,
+            out Vector3 worldPos))
+        {
+            AllyWorldSpawner.Instance.SpawnWorldAlly(allyData, worldPos);
+            Destroy(gameObject);
+        }
+        else
+        {
+            rect.position = startPos;
+        }
     }
 }

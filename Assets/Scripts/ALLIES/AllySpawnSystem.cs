@@ -30,6 +30,8 @@ public class AllySpawnSystem : MonoBehaviour
             uiSpawnBox
         );
 
+        allyUI.GetComponent<DraggableAlly>().Init(allyData);
+
         allyUI.transform.localPosition = Vector3.zero;
     }
 }
