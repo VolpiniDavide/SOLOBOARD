@@ -18,20 +18,25 @@ public class AllySpawnSystem : MonoBehaviour
 
     private void HandleSentence(ValidatedSentence sentence)
     {
-        SpawnAllyFromSubject(sentence.subject);
+        SpawnAllyFromSubject(sentence);
     }
 
-    private void SpawnAllyFromSubject(WordData subject)
+    private void SpawnAllyFromSubject(ValidatedSentence sentence)
     {
-        AllyData allyData = allyDatabase.Get(subject.id);
+        AllyData allyData = allyDatabase.Get(sentence.subject.id);
 
         GameObject allyUI = Instantiate(
             allyData.uiPrefab,
             uiSpawnBox
         );
 
-        allyUI.GetComponent<DraggableAlly>().Init(allyData);
+        var draggable = allyUI.GetComponent<DraggableAlly>();
+        draggable.Init(allyData);
+
+        //ApplyStatModifier(draggable, sentence);
 
         allyUI.transform.localPosition = Vector3.zero;
     }
+
+    
 }
